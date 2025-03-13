@@ -1,0 +1,6 @@
+Label(input_box, text='First Name').grid(row=0)
+Label(input_box, text='Last Name').grid(row=1)
+e1 = Entry(input_box)
+e2 = Entry(input_box)
+e1.grid(row=0, column=1)
+e2.grid(row=1, column=1)
