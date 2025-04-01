@@ -87,8 +87,7 @@ class ContactManager:
     def __init__(self, root):
         self.root = root
         self.root.title("Contact Manager")
-        self.root.geometry("1100x800")
-
+        self.root.geometry("1100x550")
         self.contacts = []
         self.load_contacts()
 

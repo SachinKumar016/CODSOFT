@@ -10,9 +10,9 @@ def generate_password():
     
     characters = ""
     if use_letters:
-        characters += string.ascii_letters  # a-z, A-Z
+        characters += string.ascii_letters
     if use_numbers:
-        characters += string.digits  # 0-9
+        characters += string.digits
     if use_symbols:
         characters += string.punctuation
 

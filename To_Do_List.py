@@ -3,52 +3,6 @@ from tkinter import messagebox
 import json
 
 class TagGoalToDo:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("TagGoal - To-Do List")
-        self.root.geometry("500x500")
-
-        self.task_list = []
-        self.selected_task = None
-
-        header = tk.Label(self.root, text="TagGoal", font=("Arial", 14, "bold"), bg="gray", fg="black")
-        header.pack(fill=tk.X)
-
-        top_frame = tk.Frame(self.root)
-        top_frame.pack(pady=10)
-
-        self.add_button = tk.Button(top_frame, text="+", command=self.add_task)
-        self.add_button.pack(side=tk.LEFT, padx=5)
-
-        self.task_entry = tk.Entry(top_frame, width=20, fg="gray")
-        self.task_entry.insert(0, "New Target")
-        self.task_entry.bind("<FocusIn>", self.clear_hint)
-        self.task_entry.bind("<FocusOut>", self.add_hint)
-        self.task_entry.pack(side=tk.LEFT, padx=5)
-
-        self.date_entry = tk.Entry(top_frame, width=15, fg="gray")
-        self.date_entry.insert(0, "Last Date")
-        self.date_entry.bind("<FocusIn>", self.clear_date_hint)
-        self.date_entry.bind("<FocusOut>", self.add_date_hint)
-        self.date_entry.pack(side=tk.LEFT, padx=5)
-
-        self.task_frame = tk.Frame(self.root)
-        self.task_frame.pack(fill=tk.BOTH, expand=True, pady=10)
-
-        self.desc_frame = tk.Frame(self.root, bg="lightgray")
-        self.desc_frame.pack(fill=tk.X, padx=10, pady=5)
-        self.desc_frame.pack_forget()
-
-        self.desc_label = tk.Label(self.desc_frame, text="Description:", bg="lightgray")
-        self.desc_label.pack(anchor="w", padx=5, pady=2)
-
-        self.desc_text = tk.Text(self.desc_frame, height=4, width=50)
-        self.desc_text.pack(padx=5, pady=5)
-
-        self.save_desc_button = tk.Button(self.desc_frame, text="Save", command=self.save_description)
-        self.save_desc_button.pack(pady=5)
-
-        self.load_tasks()
 
     def clear_hint(self, event):
         if self.task_entry.get() == "New Target":
@@ -132,6 +86,54 @@ class TagGoalToDo:
             self.task_list = []  
         except json.JSONDecodeError:
             self.task_list = []  
+
+    def __init__(self, root):
+        self.root = root
+        self.root.title("TagGoal - To-Do List")
+        self.root.geometry("500x500")
+
+        self.task_list = []
+        self.selected_task = None
+
+        header = tk.Label(self.root, text="TagGoal", font=("Arial", 14, "bold"), bg="gray", fg="black")
+        header.pack(fill=tk.X)
+
+        top_frame = tk.Frame(self.root)
+        top_frame.pack(pady=10)
+
+        self.add_button = tk.Button(top_frame, text="+", command=self.add_task)
+        self.add_button.pack(side=tk.LEFT, padx=5)
+
+        self.task_entry = tk.Entry(top_frame, width=20, fg="gray")
+        self.task_entry.insert(0, "New Target")
+        self.task_entry.bind("<FocusIn>", self.clear_hint)
+        self.task_entry.bind("<FocusOut>", self.add_hint)
+        self.task_entry.pack(side=tk.LEFT, padx=5)
+
+        self.date_entry = tk.Entry(top_frame, width=15, fg="gray")
+        self.date_entry.insert(0, "Last Date")
+        self.date_entry.bind("<FocusIn>", self.clear_date_hint)
+        self.date_entry.bind("<FocusOut>", self.add_date_hint)
+        self.date_entry.pack(side=tk.LEFT, padx=5)
+
+        self.task_frame = tk.Frame(self.root)
+        self.task_frame.pack(fill=tk.BOTH, expand=True, pady=10)
+
+        self.desc_frame = tk.Frame(self.root, bg="lightgray")
+        self.desc_frame.pack(fill=tk.X, padx=10, pady=5)
+        self.desc_frame.pack_forget()
+
+        self.desc_label = tk.Label(self.desc_frame, text="Description:", bg="lightgray")
+        self.desc_label.pack(anchor="w", padx=5, pady=2)
+
+        self.desc_text = tk.Text(self.desc_frame, height=4, width=50)
+        self.desc_text.pack(padx=5, pady=5)
+
+        self.save_desc_button = tk.Button(self.desc_frame, text="Save", command=self.save_description)
+        self.save_desc_button.pack(pady=5)
+
+        self.load_tasks()
+
 
 if __name__ == "__main__":
     root = tk.Tk()
