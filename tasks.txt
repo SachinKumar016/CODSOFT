@@ -1,1 +1,1 @@
-[]
+[{"name": "Daily workout", "date": "10/04/25", "description": "10 push-up\n100m run"}, {"name": "shoping", "date": "9/04/25", "description": "anything"}]

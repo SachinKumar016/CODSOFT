@@ -133,9 +133,6 @@ class TagGoalToDo:
         self.save_desc_button.pack(pady=5)
 
         self.load_tasks()
-
-
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = TagGoalToDo(root)
-    root.mainloop()
+root = tk.Tk()
+app = TagGoalToDo(root)
+root.mainloop()
